@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
+import { User } from './user/entities/user.entity';
 
 @Module({
   imports: [
@@ -21,8 +22,9 @@ import { UserModule } from './user/user.module';
           username: configService.get('POSTGRES_USER'),
           password: configService.get('POSTGRES_PASS'),
           database: configService.get('POSTGRES_DB'),
-          entities: [],
+          entities: [User],
           synchronize: true,
+          logging: true,
         };
       },
       inject: [ConfigService],
