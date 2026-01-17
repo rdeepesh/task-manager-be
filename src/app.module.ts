@@ -25,7 +25,7 @@ import { AuthModule } from './auth/auth.module';
           database: configService.get('POSTGRES_DB'),
           entities: [User],
           synchronize: true,
-          logging: true,
+          // logging: true,
         };
       },
       inject: [ConfigService],

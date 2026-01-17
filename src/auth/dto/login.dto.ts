@@ -4,25 +4,20 @@ import {
   IsNotEmpty,
   IsString,
   Matches,
-  MinLength,
 } from 'class-validator';
 
 const passwordRegEx =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{6,20}$/;
 
-export class CreateUserDto {
-  @IsString()
-  @MinLength(2, { message: 'Name must have at leat 2 characters.' })
-  @IsNotEmpty()
-  name: string;
-
+export class LoginDto {
   @IsNotEmpty()
   @IsEmail(undefined, { message: 'Please provide valid Email.' })
   email: string;
 
+  @IsNotEmpty()
   @IsString()
-  @IsEnum(['f', 'm', 'u'])
-  gender: string;
+  @IsEnum(['admin', 'user'])
+  role: string;
 
   @IsNotEmpty()
   @Matches(passwordRegEx, {

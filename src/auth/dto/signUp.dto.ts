@@ -10,7 +10,7 @@ import {
 const passwordRegEx =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{6,20}$/;
 
-export class CreateUserDto {
+export class SignUpDto {
   @IsString()
   @MinLength(2, { message: 'Name must have at leat 2 characters.' })
   @IsNotEmpty()
