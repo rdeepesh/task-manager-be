@@ -43,6 +43,10 @@ export class UserService {
     return this.userRepository.findOneBy({ id });
   }
 
+  findOneByUsername(username: string): Promise<User | null> {
+    return this.userRepository.findOneBy({ username });
+  }
+
   /**
    * this function is used to updated specific user whose id is passed in
    * parameter along with passed updated data
